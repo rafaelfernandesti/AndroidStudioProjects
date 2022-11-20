@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='JavaMobile_Cap05_01'

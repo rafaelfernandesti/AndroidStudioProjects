@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MatemApp</string>
+    <string name="clique_aqui">Clique aqui!</string>
+    <string name="digite_um_nome">Digite um nome</string>
+    <string name="content_image">Conteúdo é uma gota</string>
+    <string name="opcoes">Escolha uma das opções:</string>
+</resources>

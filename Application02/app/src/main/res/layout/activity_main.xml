@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+    <TableRow android:layout_marginTop="10dp"
+        android:layout_width="fill_parent">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:text="Texto aqui"
+            android:id="@+id/txtTexto1"
+            android:textAlignment="center"/>
+    </TableRow>
+    <TableRow android:layout_marginTop="10dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Botão"/>
+    </TableRow>
+    <TableRow android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Coluna 01"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Coluna 02"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Coluna 03"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textAlignment="center"/>
+    </TableRow>
+</TableLayout>
