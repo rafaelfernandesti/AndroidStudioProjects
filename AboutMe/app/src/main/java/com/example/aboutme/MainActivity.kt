@@ -12,7 +12,7 @@ import com.example.aboutme.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
+    private val myName: MyName = MyName("Amora - a Labradora")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             addNickname(it)
         }
   */
+        binding.myName = myName
         binding.buttonDone.setOnClickListener {
             addNickname(it)
         }
@@ -33,11 +34,12 @@ class MainActivity : AppCompatActivity() {
         val textview_nickname = findViewById<TextView>(R.id.text_nickname)
 */
         binding.apply {
-            binding.textNickname.text = binding.edittextNickname.text
+            myName?.nickname = nicknameEdit.text.toString()
+            //binding.nicknameText.text = binding.nicknameEdit.text
             invalidateAll()
-            binding.edittextNickname.visibility = View.GONE
+            binding.nicknameEdit.visibility = View.GONE
             binding.buttonDone.visibility = View.GONE
-            binding.textNickname.visibility = View.VISIBLE
+            binding.nicknameText.visibility = View.VISIBLE
         }
     }
 
