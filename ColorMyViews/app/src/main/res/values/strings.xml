@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Color My Views</string>
     <string name="box_one">Box One</string>
+    <string name="box_two">Box Two</string>
+    <string name="box_three">Box Three</string>
+    <string name="box_four">Box Four</string>
+    <string name="box_five">Box Five</string>
+    <string name="red">RED</string>
+    <string name="green">GREEN</string>
+    <string name="yellow">YELLOW</string>
+    <string name="como_jogar">Como jogar?</string>
+    <string name="click_the_button">Clique na tela e nas caixas para jogar!</string>
+    <string name="desafios">Alguns desafios para este app: - use imagens, ao invés de cores e revele as imagens. Dá até para pensar em um jogo da memória.\n- use uma imagem e quebre-a em partes para revela-la aos poucos.\n- Se livre dos textos, usando somente as caixas. Implemente uma das artes de Piet Mondrian.\n</string>
 </resources>
