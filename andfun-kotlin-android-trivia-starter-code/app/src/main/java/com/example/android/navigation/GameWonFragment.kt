@@ -16,10 +16,9 @@
 
 package com.example.android.navigation
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -29,21 +28,51 @@ import com.example.android.navigation.databinding.FragmentGameWonBinding
 
 class GameWonFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_game_won, container, false
         )
+        setHasOptionsMenu(true)
         binding.nextMatchButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_gameWonFragment_to_gameFragment))
         //exibir valor de argumentos
-        val args = GameWonFragmentArgs.fromBundle(arguments!!)
-        Toast.makeText(
+        /*Toast.makeText(
             context,
             "Número de corretas: ${args.numCorretas}, Número de questões: ${args.numQuestoes}",
             Toast.LENGTH_LONG
-        ).show()
+        ).show()*/
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        //criação do menu. Se não houver activity que sirva para a exibição o botão será escondido.
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.winner_menu, menu)
+        if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+            menu.findItem(R.id.share).isVisible = false
+        }
+    }
+
+    private fun getShareIntent(): Intent {
+        val args = GameWonFragmentArgs.fromBundle(arguments!!)
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(
+            Intent.EXTRA_TEXT,
+            getString(R.string.share_success_text, args.numCorretas, args.numQuestoes)
+        )
+        return shareIntent
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //quando o item for selecionado a mensagem de sucesso será enviada para o app de destino através da intent implícita.
+        when (item!!.itemId) {
+            R.id.share -> shareSuccess()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun shareSuccess() {
+        startActivity(getShareIntent())
     }
 }
