@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LocalDatabaseExemplo</string>
+    <string name="adicionar_palavra">Adicionar palavra</string>
+    <string name="hint_word">Digite a palavra...</string>
+    <string name="button_save">Salvar</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="add_word">Add word</string>
+</resources>

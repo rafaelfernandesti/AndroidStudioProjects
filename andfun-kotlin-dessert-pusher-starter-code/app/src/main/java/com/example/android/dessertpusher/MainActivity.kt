@@ -27,6 +27,7 @@ import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -81,9 +82,15 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding.dessertButton.setImageResource(currentDessert.imageId)
     }
 
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume chamado!")
+    }
+
     override fun onStart() {
         super.onStart()
-        Log.i("MainActivity","onStart chamado...")
+        //Log.i("MainActivity","onStart chamado...")
+        Timber.i("onStart chamado...")
     }
 
     /**
@@ -100,6 +107,11 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         // Show the next dessert
         showCurrentDessert()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause chamado...")
     }
 
     /**
@@ -123,6 +135,21 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             currentDessert = newDessert
             binding.dessertButton.setImageResource(newDessert.imageId)
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart chamado!")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop chamado!")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy chamado!")
     }
 
     /**
